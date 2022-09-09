@@ -1,9 +1,9 @@
 import dbConnect from "../dbConnect";
-import Cards from "../models/cards";
+import Card from "../models/Card";
 
 export default async function getAllCards() {
   await dbConnect();
-  const cards = await Cards.find();
+  const cards = await Card.find();
   const cardArray = cards.map(({ id, name, text }) => {
     return { id, name, text };
   });

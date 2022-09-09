@@ -11,7 +11,6 @@ export default function Form() {
     const name = form.name.value;
 
     const newCard = {
-      id: nanoid(),
       text: text,
       name: name,
     };

@@ -22,16 +22,14 @@ export default function Home({ cards }) {
   }
 
   function removeCard(id) {
-    setCardList(cardList.filter((card) => card.id !== id));
+    fetch(`/api/card/${id}`, {
+      method: "DELETE",
+    });
   }
 
   return (
     <BoardWrapper>
       <CardGrid>
-        <Card name="Niklas" text="Wie schreibe ich nochmal Imports?" />
-        <Card name="Lene" text="Können wir noch mehr Testing machen?!" />
-        <Card name="Merle" text="Wo ist mein Fahrrad?" />
-        <Card name="Thomas" text="Können wir Tailwind machen?" />
         {cardList.map((card) => {
           return (
             <Card
