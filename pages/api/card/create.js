@@ -1,11 +1,11 @@
 import dbConnect from "../../../dbConnect";
-import Cards from "../../../models/cards";
+import Card from "../../../models/Card";
 
 export default async function create(request, response) {
   await dbConnect();
   try {
     if (request.method === "POST") {
-      Cards.insertMany(request.body);
+      Card.create(request.body);
       response.status(201).json("added Card!");
     }
   } catch (error) {
