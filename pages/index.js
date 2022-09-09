@@ -25,6 +25,16 @@ export default function Home({ cards }) {
     fetch(`/api/card/${id}`, {
       method: "DELETE",
     });
+    updateCards();
+  }
+
+  async function updateCards() {
+    const response = await fetch("/api/card/", {
+      method: "GET",
+    });
+    const getUpdatedCardList = await response.json();
+    console.log(getUpdatedCardList);
+    setCardList(getUpdatedCardList);
   }
 
   return (
@@ -42,7 +52,7 @@ export default function Home({ cards }) {
           );
         })}
       </CardGrid>
-      <Form onAddCard={addCard} />
+      <Form onAddCard={addCard} onUpdateCards={updateCards} />
     </BoardWrapper>
   );
 }
