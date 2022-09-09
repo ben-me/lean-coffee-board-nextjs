@@ -1,8 +1,7 @@
-import { nanoid } from "nanoid";
 import styled from "styled-components";
 import { BsPlusCircleFill } from "react-icons/bs";
 
-export default function Form() {
+export default function Form({ onUpdateCards }) {
   async function handleSubmit(event) {
     event.preventDefault();
 
@@ -21,7 +20,7 @@ export default function Form() {
       },
       body: JSON.stringify(newCard),
     });
-
+    onUpdateCards();
     form.reset();
   }
 
